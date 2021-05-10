@@ -6,9 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="main.css" rel="stylesheet">
-  <title>《Love Live! 学园偶像季：群星闪耀》-拼图小游戏</title>
+  <title>拼图</title>
   <script src="jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
   <div class="main">
     <div class="content">
@@ -78,14 +79,14 @@
   //获取游戏信息
   var codeNum, gameName;
   function getGame() {
-    codeNum = parseInt(Math.random() * 26.1)+1;
+    codeNum = parseInt(Math.random() * 26 + 1);
     var mainImge =
       "https://static.web.sdo.com/jijiamobile/pic/llas/act/20210319Task/picture" +
       codeNum +
       ".png";
     $(".picture img").attr(
       "src",
-      "https://static.web.sdo.com/jijiamobile/pic/llas/act/20210319Task/minipic" +
+      "https://static.web.sdo.com/jijiamobile/pic/llas/act/20210319Task/picture" +
       codeNum +
       ".png"
     );
@@ -306,6 +307,7 @@
               obj.style.left = makeTable[obj.id].left + "px";
               //图片定位（交换class）
               var oldClass = obj.getAttribute("class");
+              console.log(oldClass);
               //alert(oLI);
               obj.setAttribute(
                 "class",
@@ -330,10 +332,13 @@
       }
     }
 
+
+
     random_disorder();
     initTable(td, initTable);
     for (i = 0; i < td.length; i++) {
-      td[i].addEventListener("mousedown", function () {
+      td[i].addEventListener("click", function () {
+        // console.log(td[i]);
         //拖拽
         drag(event.target, event.clientX, event.clientY, successFunction);
       });
